@@ -1,6 +1,6 @@
 import { resolve } from 'path';
 
-import { app, BrowserWindow, ipcMain, session } from 'electron';
+import { app, BrowserWindow, ipcMain, Menu, session } from 'electron';
 
 import { config } from '@/config';
 import type { AppConfig } from '@/config/types';
@@ -40,7 +40,10 @@ function createWindow() {
       preload: resolve(__dirname, '../../out/preload/index.cjs'), // 🔥 핵심
       contextIsolation: true,
     },
+    autoHideMenuBar: true
   });
+
+  Menu.setApplicationMenu(null)
 
   if (process.env.ELECTRON_RENDERER_URL) {
     win.loadURL(process.env.ELECTRON_RENDERER_URL);

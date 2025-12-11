@@ -1,0 +1,12 @@
+{
+  "name": "@minecraft_management/utils",
+  "version": "0.1.0",
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "lint": "eslint src --ext .ts"
+  },
+  "description": "Enter a short description of your project here",
+  "license": "ISC",
+  "author": "Enter author name or organization here"
+}

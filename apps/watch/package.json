@@ -1,0 +1,10 @@
+{
+  "name": "@minecraft_management/watch",
+  "version": "0.1.0",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "lint": "eslint src --ext .ts"
+  }
+}

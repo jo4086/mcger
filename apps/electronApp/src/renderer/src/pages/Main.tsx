@@ -1,7 +1,9 @@
 export const Main = () => {
   return (
     <>
-      <h1 className="text-pink-600">메인</h1>
+      <div className="bg_second m-[0 auto] flex w-full justify-center">
+        Main Page
+      </div>
     </>
   );
 };

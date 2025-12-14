@@ -1,11 +1,15 @@
 import type { RouteObject } from 'react-router-dom';
 
-import { Main } from '../pages';
+import { Main, Home } from '../pages';
 
 const appRoutes: RouteObject[] = [
   {
-    path: '',
+    path: 'main',
     element: <Main />,
+  },
+  {
+    path: '',
+    element: <Home />,
   },
 ];
 

@@ -1,6 +1,6 @@
 import { resolve } from 'path';
 
-import { app, BrowserWindow, ipcMain, Menu, session } from 'electron';
+import { app, BrowserWindow, ipcMain, Menu, session, BaseWindow } from 'electron';
 
 import { config } from '@/config';
 import type { AppConfig } from '@/config/types';
@@ -40,26 +40,38 @@ function createWindow() {
       preload: resolve(__dirname, '../../out/preload/index.cjs'), // 🔥 핵심
       contextIsolation: true,
     },
-    autoHideMenuBar: true
+    autoHideMenuBar: true,
   });
 
-  Menu.setApplicationMenu(null)
+  Menu.setApplicationMenu(null);
 
   if (process.env.ELECTRON_RENDERER_URL) {
     win.loadURL(process.env.ELECTRON_RENDERER_URL);
   } else {
     win.loadFile(resolve(__dirname, '../renderer/index.html'));
   }
+
+  if (!app.isPackaged) {
+    const menu = Menu.buildFromTemplate([
+      {
+        label: 'View',
+        submenu: [
+          {
+            label: 'Toggle DevTools',
+            accelerator: 'Ctrl+Shift+I',
+            role: 'toggleDevTools',
+          },
+        ],
+      },
+    ]);
+
+    Menu.setApplicationMenu(menu);
+  }
 }
 
 ipcMain.handle('app:get-config', (): AppConfig => {
   return config;
 });
-
-//
-// ipcMain.handle('ping', () => {
-//   return 'pong';
-// });
 
 app
   .whenReady()

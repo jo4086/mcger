@@ -9,7 +9,7 @@ interface TabsProps {
 }
 
 export function Tabs({ children, className }: TabsProps) {
-  const [selectedId, setSelectedId] = useState<number | null>(null);
+  const [selectedId, setSelectedId] = useState<number | null>(1);
 
   return (
     <div className={`bg-gray-600 flex gap-0 rounded-tl-[8px] rounded-tr-[8px] ${className}`}>

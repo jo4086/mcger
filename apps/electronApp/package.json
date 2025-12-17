@@ -5,7 +5,8 @@
   "type": "module",
   "main": "dist/main/index.js",
   "scripts": {
-    "dev": "electron-vite dev",
+    "dev:env": "node scripts/dev.build.js",
+    "dev": "pnpm dev:env && electron-vite dev",
     "start": "electron-vite preview",
     "typecheck:node": "tsc --noEmit -p tsconfig.node.json --composite false",
     "typecheck:app": "tsc --noEmit -p tsconfig.app.json --composite false",
@@ -24,7 +25,8 @@
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-router-dom": "^7.10.1",
-    "tailwind-merge": "^3.4.0"
+    "tailwind-merge": "^3.4.0",
+    "zustand": "^5.0.9"
   },
   "devDependencies": {
     "@electron-toolkit/tsconfig": "^2.0.0",

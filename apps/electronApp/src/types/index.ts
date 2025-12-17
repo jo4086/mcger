@@ -5,3 +5,4 @@ export interface AppConfig {
   enableDevTools: boolean;
   apiBaseUrl: string;
 }
+

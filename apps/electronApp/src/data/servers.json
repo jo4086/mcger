@@ -1,0 +1,26 @@
+[
+  {
+    "id": "server-a",
+    "name": "A 서버",
+    "host": "127.0.0.1",
+    "port": 8080,
+    "rcon-port": 25575,
+    "server-port": 25565
+  },
+  {
+    "id": "server-b",
+    "name": "B 서버",
+    "host": "127.0.0.1",
+    "port": 8081,
+    "rcon-port": 25575,
+    "server-port": 25565
+  },
+  {
+    "id": "server-c",
+    "name": "C 서버",
+    "host": "127.0.0.1",
+    "port": 8082,
+    "rcon-port": 25575,
+    "server-port": 25565
+  }
+]

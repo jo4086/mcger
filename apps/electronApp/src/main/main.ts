@@ -4,25 +4,6 @@ import { app, BrowserWindow, ipcMain, Menu, session } from 'electron';
 
 import { config } from '@/config';
 import type { AppConfig } from '@/config/types';
-import { bootstrapServers, readServers } from '@/serverStore';
-import type { ServerInfo } from '@/types/server';
-
-// function getServersPath() {
-//   return resolve(app.getPath('userData'), 'servers.json');
-// }
-//
-// function readServers(): ServerInfo[] {
-//   const filePath = getServersPath();
-//
-//   if (!fs.existsSync(filePath)) {
-//     // 최초 실행 시 기본값 생성
-//     const initial: ServerInfo[] = [{ id: 'server-a', name: 'A 서버', host: '127.0.0.1', port: 8080 }];
-//     fs.writeFileSync(filePath, JSON.stringify(initial, null, 2));
-//     return initial;
-//   }
-//
-//   return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
-// }
 
 /* ------------------ CSP ------------------ */
 function setupCSP() {
@@ -111,16 +92,11 @@ ipcMain.handle('server:status', async (_e, serverId: string) => {
   return !!serverRuntimeMap[serverId];
 });
 
-ipcMain.handle('server:list', (): ServerInfo[] => {
-  return readServers();
-});
-
 /* ------------------ App lifecycle ------------------ */
 app
   .whenReady()
   .then(() => {
     setupCSP();
-    bootstrapServers();
     createWindow();
   })
   .catch(console.error);

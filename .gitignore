@@ -4,6 +4,7 @@ dist/
 out/
 .turbo/
 .backup/
+gemini_chat_log/
 *.tsbuildinfo
 
 logs

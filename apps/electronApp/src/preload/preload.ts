@@ -1,6 +1,7 @@
 import { contextBridge, ipcRenderer } from 'electron';
 
 import type { AppConfig } from '@/config/types';
+import type { ServerInfo } from '@/types/server';
 
 /* ---------- 1) IPC 요청 타입 ---------- */
 interface IPCRequestMap {
@@ -11,6 +12,10 @@ interface IPCRequestMap {
   'app:get-config': {
     args: [];
     return: AppConfig;
+  };
+  'server:list': {
+    args: [];
+    return: ServerInfo[];
   };
   'server:start': {
     args: [serverName: string];

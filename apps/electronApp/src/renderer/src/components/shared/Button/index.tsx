@@ -3,7 +3,7 @@ import type React from 'react';
 import { cn } from '@/renderer/src/utils';
 
 interface ButtonProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   onClick?: () => void;
   className?: string;
   disabled?: boolean;
@@ -17,3 +17,5 @@ export function Button({ children, className, disabled = false, onClick }: Butto
     </button>
   );
 }
+
+export { ToggleBtn } from './ToggleBtn';

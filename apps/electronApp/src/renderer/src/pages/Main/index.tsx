@@ -19,33 +19,20 @@ const tabItems: { key: TabKey; label: string }[] = [
 
 export const Main = () => {
   const server = useServerStore((s) => s.currentServer);
-  const [isRunning, setIsRunning] = useState<boolean>(false);
-  const [isPending, setIsPending] = useState<boolean>(false);
   const [activeTab, _setActiveTab] = useState<TabKey>('status');
-
-  const handleToggle = async () => {
-    if (isPending) return;
-    try {
-      setIsPending(true);
-      await new Promise((r) => setTimeout(r, 300));
-      setIsRunning((prev) => !prev);
-    } catch (err) {
-      console.error('err:', err);
-    } finally {
-      setIsPending(false);
-    }
-  };
-
-  const { toggleServer: _toggleServer, runningMap: _runningMap, pendingMap: _pendingMap } = useServerRuntimeStore();
+  const { toggleServer, runningMap, pendingMap } = useServerRuntimeStore();
 
   if (!server) return null;
+
+  const isRunning = !!runningMap[server.id];
+  const isPending = !!pendingMap[server.id];
 
   return (
     <div className="bg-sky-600 m-[0 auto] flex flex-col w-full justify-center">
       <Container className="flex px-3 py-1.5 justify-between">
         <Title className="bg-fuchsia-300 flex-1 flex justify-center items-center">{server.name}</Title>
         <div className="flex-5 flex gap-5 justify-end">
-          <ToggleBtn isRunning={isRunning} onToggle={handleToggle} className="px-5 py-2 rounded-[8px]  border border-black w-24 text-xl" disabled={isPending} />
+          <ToggleBtn isRunning={isRunning} onToggle={() => toggleServer(server.id)} className="px-5 py-2 rounded-[8px]  border border-black w-24 text-xl" disabled={isPending} />
         </div>
       </Container>
 

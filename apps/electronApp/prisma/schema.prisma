@@ -6,44 +6,134 @@
 
 generator client {
   provider = "prisma-client-js"
-  output   = "../src/generated/prisma"
+  // output   = "../src/generated/prisma"
 }
 
 datasource db {
   provider = "sqlite"
-  url      = env("DATABASE_URL")
+  // url      = env("DATABASE_URL")
 }
 
-model Server {
-  id         String @id
-  name       String
-  host       String
-  apiPort    Int
-  rconPort   Int
-  serverPort Int
+// ==== User Table ====
+
+model User {
+  id       String @id @default(uuid())
+  uuid     String @unique
+  userName String
+
+  worldCount  Int @default(0)
+  friendCount Int @default(0)
+
+  status StatusType @default(ACTIVE)
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  worlds       World[]
+  friends      UserFriend[]  @relation("UserFriends")
+  friendsOf    UserFriend[]  @relation("FriendOf")
+  worldMembers WorldMember[]
 }
 
-model Proxy {
-  id   String @id
-  name String
-  port Int
+enum StatusType {
+  ACTIVE
+  SUSPENDED
+  DELETED
 }
 
-model Worlds {
-  id   String @id
-  name String
+// ==== World Table ====
 
-  type       ServerType // HUB | WORLD
-  serverPort Int
-  rconPort   Int
+model World {
+  id String @id @default(uuid())
 
-  proxyId String
+  ownerUuid String
+  owner     User   @relation(fields: [ownerUuid], references: [uuid], onDelete: Restrict)
+
+  worldName String
+  worldSlug String      @unique
+  worldType WorldType
+  status    WorldStatus
+
+  whitelistEnabled Boolean @default(false)
+  passwordEnabled  Boolean @default(false)
+  isPrivate        Boolean @default(false)
+
+  lastAccessedAt DateTime?
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+  deletedAt      DateTime?
+
+  members WorldMember[]
 }
 
-enum ServerType {
-  HUB
-  WORLD
+enum WorldType {
+  SURVIVAL
+  CREATE
+  FLAT
+}
+
+enum WorldStatus {
+  CREATED
+  ACTIVE
+  IDLE
+  ARCHIVED
+}
+
+// ==== Friend Table ====
+
+model UserFriend {
+  id String @id @default(uuid())
+
+  userUuid   String
+  friendUuid String
+
+  status FriendStatus
+
+  createdAt DateTime @default(now())
+
+  user   User @relation("UserFriends", fields: [userUuid], references: [uuid], onDelete: Restrict)
+  friend User @relation("FriendOf", fields: [friendUuid], references: [uuid], onDelete: Restrict)
+
+  @@unique([userUuid, friendUuid])
+}
+
+enum FriendStatus {
+  PENDING
+  ACCEPTED
+  BLOCKED
+}
+
+// ==== World Member Table ====
+
+model WorldMember {
+  id String @id @default(uuid())
+
+  worldId  String
+  userUuid String
+
+  role   WorldMemberRole
+  status WorldMemberStatus
+
+  addedBy String
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  expiresAt DateTime?
+
+  world World @relation(fields: [worldId], references: [id], onDelete: Restrict)
+  user  User  @relation(fields: [userUuid], references: [uuid], onDelete: Restrict)
+
+  @@unique([worldId, userUuid])
+}
+
+enum WorldMemberRole {
+  OWNER
+  MANAGER
+  MEMBER
+}
+
+enum WorldMemberStatus {
+  ACTIVE
+  PENDING
+  BANNED
 }

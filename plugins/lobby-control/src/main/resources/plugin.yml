@@ -1,0 +1,8 @@
+name: LobbyControl
+version: 0.1.0
+main: dev.mcger.lobby.LobbyPlugin
+api-version: '1.21'
+
+commands:
+  hello:
+    description: 테스트 명령어

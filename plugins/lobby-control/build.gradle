@@ -1,28 +1,42 @@
 plugins {
-    id "java"
-  }
+  id "java"
+  id "com.github.johnrengelman.shadow" version "8.1.1"
+}
 
 group = "dev.mcger"
 version = '0.1.0'
 
 java {
-    toolchain {
-        languageVersion = JavaLanguageVersion.of(21)
-      }
+  toolchain {
+    languageVersion = JavaLanguageVersion.of(21)
   }
+}
 
-  repositories {
-      mavenCentral ()
-      maven {
-          url = "https://repo.papermc.io/repository/maven-public"
-        }
-    }
+repositories {
+  mavenCentral ()
+  maven {
+    url = "https://repo.papermc.io/repository/maven-public"
+  }
+}
 
 dependencies {
-    // Paper 서버에 이미 있으므로 포함하지 않음
-    compileOnly 'io.papermc.paper:paper-api:1.21.10-R0.1-SNAPSHOT'
+  // Paper 서버 제공 → compileOnly
+  compileOnly "io.papermc.paper:paper-api:1.21.10-R0.1-SNAPSHOT"
+
+  // 서버에 없으므로 반드시 포함
+  implementation "org.java-websocket:Java-WebSocket:1.5.6"
 }
 
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8'
+}
+
+shadowJar {
+  relocate "org.java_websocket", "dev.mcger.libs.websocket"
+
+  // 🔑 핵심 해결 설정
+  mergeServiceFiles()
+  exclude "META-INF/*.SF"
+  exclude "META-INF/*.DSA"
+  exclude "META-INF/*.RSA"
 }

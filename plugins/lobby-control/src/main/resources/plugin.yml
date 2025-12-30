@@ -1,4 +1,4 @@
-name: LobbyControl
+name: LobbyPlugin
 version: 0.1.0
 main: dev.mcger.lobby.LobbyPlugin
 api-version: '1.21'
@@ -6,3 +6,10 @@ api-version: '1.21'
 commands:
   hello:
     description: 테스트 명령어
+    usage: /hello <arg>
+  lobby:
+    description: Lobby control command
+    usage: |
+      /lobby edit on|off
+      /lobby editor add <player>
+      /lobby editor remove <player>

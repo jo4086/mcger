@@ -1,0 +1,6 @@
+name: McgerLobby
+version: 0.1.0
+main: io.mcger.lobby.LobbyPlugin
+api-version: '1.21'
+
+depend: [McgerCore]

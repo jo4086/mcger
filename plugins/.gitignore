@@ -16,3 +16,6 @@ bin/
 # ===== OS =====
 .DS_Store
 Thumbs.db
+
+# ==== test code ====
+core-test-plugin/

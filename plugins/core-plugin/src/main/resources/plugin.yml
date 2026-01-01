@@ -1,6 +1,6 @@
-name: McgerCore
+name: McgerCorePlugin
 version: 0.1.0
-main: io.mcger.core.CorePlugin
+main: io.mcger.core.McgerCorePlugin
 api-version: '1.21'
 
 load: STARTUP

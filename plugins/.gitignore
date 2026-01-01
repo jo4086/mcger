@@ -19,3 +19,4 @@ Thumbs.db
 
 # ==== test code ====
 core-test-plugin/
+.backup

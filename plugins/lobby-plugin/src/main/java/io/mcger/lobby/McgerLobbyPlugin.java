@@ -7,7 +7,7 @@ import io.mcger.core.runtime.RuntimeContext;
 import io.mcger.lobby.listener.BlockProtectListener;
 import io.mcger.lobby.listener.PlayerJoinListener;
 
-public class LobbyPlugin extends JavaPlugin {
+public class McgerLobbyPlugin extends JavaPlugin {
 
   @Override
   public void onEnable() {

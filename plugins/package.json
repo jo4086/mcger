@@ -1,0 +1,9 @@
+{
+  "name": "@repo/mcger-plugins",
+  "private": true,
+  "scripts": {
+    "build": "./gradlew build",
+    "lsp": "./gradlew eclipse",
+    "add": "sh -c './gradlew createPlugin -PpluginName=$1' --"
+  }
+}

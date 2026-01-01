@@ -5,7 +5,7 @@ import io.mcger.core.bridge.plugin.PluginBridge;
 import io.mcger.core.lifecycle.CoreLifecycle;
 import io.mcger.core.runtime.RuntimeContext;
 
-public class CorePlugin extends JavaPlugin {
+public class McgerCorePlugin extends JavaPlugin {
 
   private RuntimeContext runtimeContext;
   private CoreLifecycle lifecycle;

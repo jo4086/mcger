@@ -1,0 +1,22 @@
+# ===== Gradle =====
+.gradle/
+build/
+gradle/
+
+# ===== Gradle Wrapper binaries (선택) =====
+gradlew
+gradlew.bat
+
+# ===== IDE / LSP =====
+bin/
+.project
+.classpath
+.settings/
+
+# ===== OS =====
+.DS_Store
+Thumbs.db
+
+# ==== test code ====
+core-test-plugin/
+.backup

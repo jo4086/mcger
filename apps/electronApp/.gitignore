@@ -13,3 +13,5 @@ dist-ssr
 
 ## custom
 .default_settings/
+
+/src/generated/prisma

@@ -1,0 +1,11 @@
+name: McgerNavigatorPlugin
+version: 0.1.0
+main: io.mcger.navigator.McgerNavigatorPlugin
+api-version: '1.21'
+
+depend: [McgerCorePlugin]
+
+commands:
+  worlds:
+    description: Open main menu
+    usage: /worlds

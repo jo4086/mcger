@@ -1,5 +1,9 @@
 package io.mcger.core.runtime;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 import org.bukkit.Server;
 import org.bukkit.plugin.Plugin;
 
@@ -21,11 +25,13 @@ public class RuntimeContext {
   private final Server server;
 
   private ServerState serverState;
+  private final List<WorldSummary> worldSummaries;
 
   public RuntimeContext(Plugin plugin) {
     this.plugin = plugin;
     this.server = plugin.getServer();
     this.serverState = ServerState.STARTING;
+    this.worldSummaries = new ArrayList<>();
   }
 
   /*
@@ -47,5 +53,17 @@ public class RuntimeContext {
 
   public Server getServer() {
     return server;
+  }
+
+  public List<WorldSummary> getWorldSummaries() {
+    return Collections.unmodifiableList(worldSummaries);
+  }
+
+  public void registerWorldSummary(WorldSummary summary) {
+    worldSummaries.add(summary);
+  }
+
+  public void clearWorldSummaries() {
+    worldSummaries.clear();
   }
 }

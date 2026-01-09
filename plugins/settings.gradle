@@ -3,5 +3,5 @@ rootProject.name = "mcger-plugins"
 include(
   "core-plugin",
   "lobby-plugin",
-  "test-plugin"
+  "navigator-plugin"
 )

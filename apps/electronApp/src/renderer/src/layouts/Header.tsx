@@ -3,10 +3,11 @@ import { Link } from 'react-router-dom';
 const Header = () => {
   return (
     <>
-      <header className="bg-[oklch(0.2_0.05_250/0.9)] text-black text-2xl flex">
-        <Link to={{ pathname: '' }}>로고</Link>
-        <input className="rounded-sm m-4 " />
-      </header>
+      <div className="flex justify-center items-center bg-brand-light py-2">
+        <Link className="px-4 py-2 border border-white rounded-md min-w-30 text-center" to={{ pathname: '' }}>
+          로고
+        </Link>
+      </div>
     </>
   );
 };

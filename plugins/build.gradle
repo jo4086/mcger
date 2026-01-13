@@ -1,0 +1,107 @@
+plugins {
+  id "java" // apply false
+}
+
+allprojects {
+  group = "dev.mcger"
+  version = "0.1.0"
+
+  repositories {
+    mavenCentral()
+    maven {
+      url = "https://repo.papermc.io/repository/maven-public/"
+    }
+  }
+}
+
+subprojects {
+  apply plugin: "java"
+  apply plugin: "eclipse"
+
+  java {
+    toolchain {
+      languageVersion = JavaLanguageVersion.of(21)
+    }
+  }
+
+  tasks.withType(JavaCompile).configureEach {
+    options.encoding = "UTF-8"
+  }
+}
+
+// kebab-case → CamelCase
+def toCamel = { String name ->
+  name.split("-")
+      .collect { it.capitalize() }
+      .join("")
+}
+
+tasks.register("createPlugin") {
+  group = "mcger"
+  description = "Create a new Paper plugin module"
+
+  doLast {
+    // 1️⃣ 입력값
+    def rawName = project.findProperty("pluginName")   // test-plugin
+    if (!rawName) {
+      throw new GradleException(
+        "사용법: ./gradlew createPlugin -PpluginName=test-plugin"
+      )
+    }
+
+    // 2️⃣ 이름 계산
+    def parts = rawName.split("-")
+    def domain = parts[0]                              // test
+    def camelName = toCamel(rawName)                   // TestPlugin
+    def pluginDisplayName = "Mcger${camelName}"        // McgerTestPlugin
+    def jarBaseName = "mcger-${rawName}"               // mcger-test-plugin
+
+    // 3️⃣ 플러그인 디렉토리
+    def pluginDir = file(rawName)
+    if (pluginDir.exists()) {
+      throw new GradleException("이미 존재하는 플러그인입니다: ${rawName}")
+    }
+
+    // 4️⃣ Java 디렉토리 생성
+    def javaDir = file("${rawName}/src/main/java/io/mcger/${domain}")
+    javaDir.mkdirs()
+
+    // 5️⃣ Java 파일 생성 (package만)
+    file("${javaDir}/${pluginDisplayName}.java").text = """
+package io.mcger.${domain};
+""".trim() + "\n"
+
+    // 6️⃣ resources 디렉토리 생성 (plugin.yml 용)
+    file("${rawName}/src/main/resources").mkdirs()
+
+    // 7️⃣ build.gradle
+    file("${rawName}/build.gradle").text = """
+plugins {
+  id "java"
+}
+
+dependencies {
+  compileOnly project(":core-plugin")
+  compileOnly "io.papermc.paper:paper-api:1.21.10-R0.1-SNAPSHOT"
+}
+
+jar {
+  archiveBaseName.set("${jarBaseName}")
+  archiveVersion.set("")
+}
+""".trim()
+
+    // 8️⃣ plugin.yml
+    file("${rawName}/src/main/resources/plugin.yml").text = """
+name: ${pluginDisplayName}
+version: 0.1.0
+main: io.mcger.${domain}.${pluginDisplayName}
+api-version: '1.21'
+
+depend: [McgerCorePlugin]
+""".trim()
+
+    println "✅ 플러그인 생성 완료: ${rawName}"
+  }
+}
+

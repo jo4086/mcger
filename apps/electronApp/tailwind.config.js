@@ -4,7 +4,15 @@ import plugin from 'tailwindcss/plugin';
 export default {
   content: ['./src/renderer/index.html', './src/renderer/src/**/*.{js,ts,jsx,tsx}'],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        brand: {
+          dark: 'oklch(0.20 0.05 250)',
+          DEFAULT: 'oklch(0.24 0.05 250)',
+          light: 'oklch(0.28 0.05 250)',
+        },
+      },
+    },
   },
   plugins: [
     plugin(function ({ addComponents }) {

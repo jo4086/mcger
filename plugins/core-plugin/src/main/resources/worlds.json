@@ -1,0 +1,242 @@
+[
+  {
+    "worldId": "world-001",
+    "name": "Sky Garden",
+    "ownerUuid": "6c2a260e-d999-4ea2-8ad5-c20bbf9b3a4e",
+    "maxPlayers": 15,
+    "passwordEnabled": false,
+    "whitelistEnabled": false
+  },
+  {
+    "worldId": "world-002",
+    "name": "Redstone Lab",
+    "ownerUuid": "86dc3f20-85dd-4e65-bde3-286bb1dc6741",
+    "maxPlayers": 20,
+    "passwordEnabled": false,
+    "whitelistEnabled": false
+  },
+  {
+    "worldId": "world-003",
+    "name": "Ocean Keep",
+    "ownerUuid": "30d056a1-9087-4fd9-b12b-dfacec5d4074",
+    "maxPlayers": 25,
+    "passwordEnabled": false,
+    "whitelistEnabled": true
+  },
+  {
+    "worldId": "world-004",
+    "name": "Ironvale",
+    "ownerUuid": "8473d0f0-ea1e-4a4d-824a-e450989a1464",
+    "maxPlayers": 30,
+    "passwordEnabled": true,
+    "whitelistEnabled": false
+  },
+  {
+    "worldId": "world-005",
+    "name": "Sandspire",
+    "ownerUuid": "0a9a2689-01fa-4b74-8cfa-44de86f19c5e",
+    "maxPlayers": 10,
+    "passwordEnabled": false,
+    "whitelistEnabled": false
+  },
+  {
+    "worldId": "world-006",
+    "name": "Cherry Vale",
+    "ownerUuid": "3125c7a9-524b-488b-bac6-f849cab26308",
+    "maxPlayers": 15,
+    "passwordEnabled": false,
+    "whitelistEnabled": true
+  },
+  {
+    "worldId": "world-007",
+    "name": "Frostgate",
+    "ownerUuid": "20e25630-9fd3-4896-9691-a9402d4957f4",
+    "maxPlayers": 20,
+    "passwordEnabled": false,
+    "whitelistEnabled": false
+  },
+  {
+    "worldId": "world-008",
+    "name": "Amber Field",
+    "ownerUuid": "8b3cee77-ab30-4e02-84fa-cf7b5052d04b",
+    "maxPlayers": 25,
+    "passwordEnabled": true,
+    "whitelistEnabled": false
+  },
+  {
+    "worldId": "world-009",
+    "name": "Riverlight",
+    "ownerUuid": "603d29d8-3be6-4164-af35-198247eb8039",
+    "maxPlayers": 30,
+    "passwordEnabled": false,
+    "whitelistEnabled": true
+  },
+  {
+    "worldId": "world-010",
+    "name": "Stonehaven",
+    "ownerUuid": "bb4aa1f3-559a-4e27-8351-767e7b84df90",
+    "maxPlayers": 10,
+    "passwordEnabled": false,
+    "whitelistEnabled": false
+  },
+  {
+    "worldId": "world-011",
+    "name": "Windcrest",
+    "ownerUuid": "efa4967b-0f4a-482f-bda5-ab344148fbae",
+    "maxPlayers": 15,
+    "passwordEnabled": false,
+    "whitelistEnabled": false
+  },
+  {
+    "worldId": "world-012",
+    "name": "Nightglow",
+    "ownerUuid": "03d46481-8efc-40a0-9660-1b8011fe57f3",
+    "maxPlayers": 20,
+    "passwordEnabled": true,
+    "whitelistEnabled": true
+  },
+  {
+    "worldId": "world-013",
+    "name": "Maple Ridge",
+    "ownerUuid": "66a748db-d655-468b-8bb9-67d8980446da",
+    "maxPlayers": 25,
+    "passwordEnabled": false,
+    "whitelistEnabled": false
+  },
+  {
+    "worldId": "world-014",
+    "name": "Coral Bay",
+    "ownerUuid": "e527fa47-f2a4-41ee-9eda-38b34ae4b58f",
+    "maxPlayers": 30,
+    "passwordEnabled": false,
+    "whitelistEnabled": false
+  },
+  {
+    "worldId": "world-015",
+    "name": "Crystal Hollow",
+    "ownerUuid": "d235003f-5ba3-410f-be21-cfb2c8b66dd7",
+    "maxPlayers": 10,
+    "passwordEnabled": false,
+    "whitelistEnabled": true
+  },
+  {
+    "worldId": "world-016",
+    "name": "Mosswood",
+    "ownerUuid": "41b27aa3-13e6-4843-af86-d650a87fb2a2",
+    "maxPlayers": 15,
+    "passwordEnabled": true,
+    "whitelistEnabled": false
+  },
+  {
+    "worldId": "world-017",
+    "name": "Sunreach",
+    "ownerUuid": "38e73350-85a5-4ffa-8aa0-d4eb962ee8ee",
+    "maxPlayers": 20,
+    "passwordEnabled": false,
+    "whitelistEnabled": false
+  },
+  {
+    "worldId": "world-018",
+    "name": "Dustfall",
+    "ownerUuid": "8aabb6b6-e7ec-47a8-887f-1d40779d9d3b",
+    "maxPlayers": 25,
+    "passwordEnabled": false,
+    "whitelistEnabled": true
+  },
+  {
+    "worldId": "world-019",
+    "name": "Seabreak",
+    "ownerUuid": "9b0c23d4-a785-4dc2-9b4b-161c2201889d",
+    "maxPlayers": 30,
+    "passwordEnabled": false,
+    "whitelistEnabled": false
+  },
+  {
+    "worldId": "world-020",
+    "name": "Ashen Peak",
+    "ownerUuid": "7b6a8712-d9b6-4b6f-94dc-433294e645ae",
+    "maxPlayers": 10,
+    "passwordEnabled": true,
+    "whitelistEnabled": false
+  },
+  {
+    "worldId": "world-021",
+    "name": "Aurora",
+    "ownerUuid": "00c0728c-f828-43dd-83ac-1543838fbd61",
+    "maxPlayers": 15,
+    "passwordEnabled": false,
+    "whitelistEnabled": true
+  },
+  {
+    "worldId": "world-022",
+    "name": "Pinewatch",
+    "ownerUuid": "c330e365-53d6-447e-a7cc-b83a98681ec8",
+    "maxPlayers": 20,
+    "passwordEnabled": false,
+    "whitelistEnabled": false
+  },
+  {
+    "worldId": "world-023",
+    "name": "Lumen City",
+    "ownerUuid": "bdfabe60-a3a0-4aea-be03-e2be158ba6e3",
+    "maxPlayers": 25,
+    "passwordEnabled": false,
+    "whitelistEnabled": false
+  },
+  {
+    "worldId": "world-024",
+    "name": "Copper Lane",
+    "ownerUuid": "78c12d04-98ee-482d-817e-248f4c34650e",
+    "maxPlayers": 30,
+    "passwordEnabled": true,
+    "whitelistEnabled": true
+  },
+  {
+    "worldId": "world-025",
+    "name": "Storm Harbor",
+    "ownerUuid": "dd134af5-c7ec-4fcd-ac7d-50baf11dfe0d",
+    "maxPlayers": 10,
+    "passwordEnabled": false,
+    "whitelistEnabled": false
+  },
+  {
+    "worldId": "world-026",
+    "name": "Mira Flats",
+    "ownerUuid": "7c5bee8b-80f7-4a38-9fba-d24a70e476b8",
+    "maxPlayers": 15,
+    "passwordEnabled": false,
+    "whitelistEnabled": false
+  },
+  {
+    "worldId": "world-027",
+    "name": "Quartz Hill",
+    "ownerUuid": "573c3554-2363-4059-b59a-bc788655848e",
+    "maxPlayers": 20,
+    "passwordEnabled": false,
+    "whitelistEnabled": true
+  },
+  {
+    "worldId": "world-028",
+    "name": "Gilded Dock",
+    "ownerUuid": "96866c3a-d761-4149-8b57-5fe8a8710079",
+    "maxPlayers": 25,
+    "passwordEnabled": true,
+    "whitelistEnabled": false
+  },
+  {
+    "worldId": "world-029",
+    "name": "Lilygate",
+    "ownerUuid": "9ed2c8f4-be99-41ff-a3f7-2e56678a4943",
+    "maxPlayers": 30,
+    "passwordEnabled": false,
+    "whitelistEnabled": false
+  },
+  {
+    "worldId": "world-030",
+    "name": "Ember Plains",
+    "ownerUuid": "cceea7b0-ac83-4a39-9bfd-63ed0f29056f",
+    "maxPlayers": 10,
+    "passwordEnabled": false,
+    "whitelistEnabled": true
+  }
+]

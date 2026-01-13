@@ -4,6 +4,7 @@ dist/
 out/
 .turbo/
 .backup/
+gemini_chat_log/
 *.tsbuildinfo
 
 logs
@@ -19,4 +20,5 @@ lerna-debug.log*
 
 .DS_Store
 .env
-
+*.db
+*.db-journal

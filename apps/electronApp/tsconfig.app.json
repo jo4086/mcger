@@ -34,5 +34,6 @@
       "@renderer/*": ["src/renderer/src/*"]
     }
   },
-  "include": ["src"]
+  "include": ["src"],
+  "exclude": ["**/*_bak.*", "**/*_bak.ts", "**/*_bak.tsx"]
 }
